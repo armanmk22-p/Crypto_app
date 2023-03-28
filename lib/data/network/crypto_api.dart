@@ -13,7 +13,7 @@ class CryptoApi {
   Future <Response> getCryptoApi() async{
 
     try {
-      final Response response = await clientDio.get(url:AppConstants.EndPoint_Assets )
+      final Response response = await clientDio.get(url:AppConstants.EndPoint_Assets );
       return response;
     } catch (e) {
       rethrow;

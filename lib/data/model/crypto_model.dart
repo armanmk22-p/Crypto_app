@@ -1,11 +1,13 @@
+
+
 class CryptoModel {
   final String id;
   final String name;
-  final String rank;
+  final int rank;
   final String symbol;
-  final String marketCapUsd;
-  final String priceUsd;
-  final String changePercent24Hr;
+  final double marketCapUsd;
+  final double priceUsd;
+  final double changePercent24Hr;
 
   CryptoModel({
     required this.id,
@@ -20,11 +22,11 @@ class CryptoModel {
   factory CryptoModel.fromJson(Map<String,dynamic> json)=>CryptoModel(
     id: json['id'],
     name: json['name'],
-    rank: json['rank'],
+    rank: int.parse(json['rank']),
     symbol: json['symbol'],
-    marketCapUsd: json['marketCapUsd'],
-    priceUsd: json['priceUsd'],
-    changePercent24Hr: json['changePercent24Hr'],
+    marketCapUsd:double.parse( json['marketCapUsd']),
+    priceUsd:double.parse( json['priceUsd']),
+    changePercent24Hr:double.parse( json['changePercent24Hr']),
   );
 
   Map<String,dynamic> toJson(){

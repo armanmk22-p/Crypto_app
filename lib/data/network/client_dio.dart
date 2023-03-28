@@ -1,14 +1,15 @@
+
 import 'package:crypto_app/constants.dart';
 import 'package:dio/dio.dart';
 
 class ClientDio {
   final Dio dio;
 
-  ClientDio({required this.dio}) {
+  ClientDio(this.dio) {
     dio
       ..options.baseUrl = AppConstants.BaseUrl
-      ..options.connectTimeout = AppConstants.Connection_TimeOut as Duration?
-      ..options.receiveTimeout = AppConstants.Recieve_TimeOut as Duration?
+      ..options.connectTimeout =Duration(seconds: AppConstants.Connection_TimeOut)
+      ..options.receiveTimeout = Duration(seconds: AppConstants.Recieve_TimeOut)
       ..options.responseType = ResponseType.json
       ..interceptors.add(LogInterceptor(
         request: true,
@@ -27,7 +28,7 @@ class ClientDio {
   }) async {
     try {
       final Response response =
-          await _dio.get(url, queryParameters: queryParameters);
+          await dio.get(url, queryParameters: queryParameters);
       return response;
     } catch (e) {
       rethrow;
