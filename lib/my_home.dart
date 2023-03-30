@@ -18,6 +18,7 @@ class _MyHomeState extends State<MyHome> {
         child: Scaffold(
       appBar: AppBar(
         title: Text('Crypto Market'),
+        centerTitle: true,
         automaticallyImplyLeading: false,
       ),
       body: FutureBuilder(
